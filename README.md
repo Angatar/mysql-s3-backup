@@ -1,14 +1,14 @@
 # mysql-s3-backup
-A simple mysql client and s3cmd S3 client installed on the Alpine:latest container
+A simple mysql client and s3cmd S3 client installed on the Alpine:latest container.
 
 Useful with any S3 compatible object storage system to store your databases dumps.
 
-This container has no entry point so that it can be used to combine mysqldump and s3cmd commands.
+This container has a shell for entry point so that it can be used to combine mysqldump and s3cmd commands easily.
 
 ## Basic usage
 
 ```sh
-docker run --rm -v $(pwd):/s3 -v $HOME/.s3:/root d3fk/mysql-s3-backup mysqldump -h ${MYSQL_HOST:localhost} -u ${MYSQL_USER:root} --password=${MYSQL_PASSWORD:your_password} --databases ${DATABASES_NAMES:mysql}> "$(date +%F_%H)_mysqldump.sql" && s3cmd put --ssl  . s3://${BUCKET_NAME}
+docker run --rm -v $(pwd):/s3 -v $HOME/.s3:/root d3fk/mysql-s3-backup sh -c 'mysqldump -h ${MYSQL_HOST:localhost} -u ${MYSQL_USER:root} --password=${MYSQL_PASSWORD:your_password} --databases ${DATABASES_NAMES:mysql}> "$(date +%F_%H)_mysqldump.sql" && s3cmd put --ssl  . s3://${BUCKET_NAME}'
 ```
 The first volume is using your current directory as workdir(permit to keep a version of your dump locally or to backup a local file as well) and the second volume is used for the configuration of your S3 connection.
 
