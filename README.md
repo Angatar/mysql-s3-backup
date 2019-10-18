@@ -8,7 +8,7 @@ This container has no entry point so that it can be used to combine mysqldump an
 ## Basic usage
 
 ```sh
-docker run -v $(pwd):/s3 -v $HOME/.s3:/root d3fk/mysql-s3-backup mysqldump -h ${MYSQL_HOST:localhost} -u ${MYSQL_USER:root} --password=${MYSQL_PASSWORD:your_password} --databases ${DATABASES_NAMES:mysql}> "$(date +%F_%H)_mysqldump.sql" && s3cmd put --ssl  . s3://${BUCKET_NAME}
+docker run --rm -v $(pwd):/s3 -v $HOME/.s3:/root d3fk/mysql-s3-backup mysqldump -h ${MYSQL_HOST:localhost} -u ${MYSQL_USER:root} --password=${MYSQL_PASSWORD:your_password} --databases ${DATABASES_NAMES:mysql}> "$(date +%F_%H)_mysqldump.sql" && s3cmd put --ssl  . s3://${BUCKET_NAME}
 ```
 The first volume is using your current directory as workdir(permit to keep a version of your dump locally or to backup a local file as well) and the second volume is used for the configuration of your S3 connection.
 
