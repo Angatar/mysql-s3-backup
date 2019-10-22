@@ -1,0 +1,35 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: master-mysqlbackup-cronjob
+spec:
+  schedule: "0 */4 * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 2
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: mysqldump-s3-backup
+            image: d3fk/mysql-s3-backup:latest
+            args:
+            - sh
+            - -c
+            - mysqldump -u ${MYSQL_USER} -h ${MYSQL_HOST} --password=${MYSQL_PASSWORD} --databases ${DATABASES} > /tmp/dump/databasebackup.sql && s3cmd put --ssl --server-side-encryption --server-side-encryption-kms-id=${YOUR_KMS_KEY_ID} /tmp/dump/databasebackup.sql s3://${YOUR_BUCKET_NAME}/DB/
+            volumeMounts:
+            - name: tmp-volume
+              mountPath: /tmp/dump/
+            - name: s3config
+              mountPath: /root/.s3cfg
+              subPath: .s3cfg
+
+          volumes:
+          - name: tmp-volume
+            emptyDir: {}
+          - name: s3config
+            configMap:
+              name: s3config
+
+          restartPolicy: Never
