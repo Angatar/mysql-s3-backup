@@ -1,9 +1,18 @@
-# mysql-s3-backup
+# mysql-s3-backup (d3fk/mysql-s3-backup)
 A simple mysql client and s3cmd S3 client installed on the Alpine:latest container.
 
 Useful with any S3 compatible object storage system to store your databases dumps.
 
 This container has a shell for entry point so that it can be used to combine mysqldump and s3cmd commands easily.
+
+## Docker image
+pre-build from Docker hub with "automated build" option.
+
+image name **d3fk/mysql-s3-backup**
+
+`docker pull d3fk/https-redirect`
+
+Docker hub repository: https://hub.docker.com/r/d3fk/mysql-s3-backup/
 
 ## Basic usage
 
