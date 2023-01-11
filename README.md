@@ -1,18 +1,51 @@
-# mysql-s3-backup (d3fk/mysql-s3-backup)
-A simple mysql client and s3cmd S3 client installed on the Alpine:latest container.
+[![Docker Pulls](https://badgen.net/docker/pulls/d3fk/mysql-s3-backup?icon=docker&label=pulls)](https://hub.docker.com/r/d3fk/mysql-s3-backup/tags) [![Docker Image Size](https://badgen.net/docker/size/d3fk/mysql-s3-backup/latest?icon=docker&label=image%20size)](https://hub.docker.com/r/d3fk/mysql-s3-backup/tags) [![Docker build](https://img.shields.io/docker/cloud/automated/d3fk/mysql-s3-backup?label=build&logo=docker)](https://hub.docker.com/r/d3fk/mysql-s3-backup/tags) [![Build status](https://img.shields.io/docker/cloud/build/d3fk/mysql-s3-backup?label=build%20status&logo=docker)](https://hub.docker.com/r/d3fk/mysql-s3-backup/builds) [![Docker Stars](https://badgen.net/docker/stars/d3fk/mysql-s3-backup?icon=docker&label=stars&color=green)](https://hub.docker.com/r/d3fk/mysql-s3-backup) [![Github Stars](https://img.shields.io/github/stars/Angatar/mysql-s3-backup?label=stars&logo=github&color=green)](https://github.com/Angatar/mysql-s3-backup) [![Github forks](https://img.shields.io/github/forks/Angatar/mysql-s3-backup?logo=github)](https://github.com/Angatar/mysql-s3-backup/fork) [![Github open issues](https://img.shields.io/github/issues-raw/Angatar/mysql-s3-backup?logo=github&color=yellow)](https://github.com/Angatar/mysql-s3-backup/issues) [![Github closed issues](https://img.shields.io/github/issues-closed-raw/Angatar/mysql-s3-backup?logo=github&color=green)](https://github.com/Angatar/mysql-s3-backup/issues?q=is%3Aissue+is%3Aclosed) [![GitHub license](https://img.shields.io/github/license/Angatar/mysql-s3-backup)](https://github.com/Angatar/mysql-s3-backup/blob/master/LICENSE)
 
-Useful with any S3 compatible object storage system to store your databases dumps.
+
+# mysql-s3-backup (Angatar> d3fk/mysql-s3-backup)
+This is a Docker multi-arch image with a tiny MySQL client (~4kB installed) to create databases dumps and s3cmd S3 client installed on the latest Alpine container.
+
+Useful with **any S3 compatible** object storage system to store your databases dumps.
+The MySQL client works with any Mysql-compatible database i.e. MySQL, MariaDB or Amazon Aurora MySQL...
 
 This container has a shell for entry point so that it can be used to combine mysqldump and s3cmd commands easily.
 
 ## Docker image
-pre-build from Docker hub with "automated build" option.
+[![Docker Image Size](https://badgen.net/docker/size/d3fk/mysql-s3-backup/latest?icon=docker&label=image%20size)](https://hub.docker.com/r/d3fk/mysql-s3-backup/tags)
+Pre-build as multi-arch image from Docker hub with "automated build" option.
 
-image name **d3fk/mysql-s3-backup**
+- image name: **d3fk/mysql-s3-backup**
 
-`docker pull d3fk/https-redirect`
+`docker pull d3fk/mysql-s3-backup`
 
 Docker hub repository: https://hub.docker.com/r/d3fk/mysql-s3-backup/
+
+[![DockerHub Badge](https://lucky-red-wombat.cyclic.app/image/d3fk/mysql-s3-backup)](https://hub.docker.com/r/d3fk/mysql-s3-backup)
+
+### Image TAGS
+***"d3fk/mysql-s3-backup:latest" and "d3fk/mysql-s3-backup:stable" are both provided as multi-arch images.***
+
+*These multi-arch images will fit most of architectures:*
+
+- *linux/amd64*
+- *linux/386*
+- *linux/arm/v6*
+- *linux/arm/v7*
+- *linux/arm64/v8*
+- *linux/ppc64le*
+- *linux/s390x*
+
+
+#### --- Latest ---
+
+- **d3fk/mysql-s3-backup:latest** is available as multi-arch image build from Docker Hub nodes dedicated to automated builds. Automated builds are triggered on each change of this [image code repository](https://github.com/Angatar/mysql-s3-backup) + once per week so that using the d3fk/mysql-s3-backup:latest image ensures you to have the **latest updated (including security fixes) and functional version** available of s3cmd and mysql client in a lightweight alpine image.
+
+#### --- Stable ---
+
+- **d3fk/mysql-s3-backup:stable** is a multi-arch image that won't be rebuild, so that it is providing fixed versions. It will probably be your choice in case you'd prefer a fixed version of this d3fk/mysql-s3-backup container to **avoid any possible change** in its behaviour. It contains the s3cmd S3 client version 2.3.0 and mysql-client 10.6.11-r0 in an Alpine Linux v3.17. This image had a stable behaviour observed in production, so that it was freezed in a release of the code repo and built from the Docker hub by automated build. It won't be changed or rebuilt in the future (the code is available from the "releases" section of this [image code repository on GitHub](https://github.com/Angatar/mysql-s3-backup)).
+
+```sh
+$ docker pull d3fk/mysql-s3-backup:stable
+```
 
 ## Basic usage
 
@@ -59,3 +92,8 @@ kubectl create -f s3-dump-cronjob.yaml
 
 In case you are interested in storing other data into a S3 compatible object storage you'd probably prefer to use [d3fk/s3cmd](https://hub.docker.com/r/d3fk/s3cmd) wich is also based on Alpine distrib but only contains the s3cmd tool and has s3cmd for entrypoint.
 
+
+## License
+
+The content of this [GitHub code repository](https://github.com/Angatar/mysql-s3-backup) is provided under **MIT** licence
+[![GitHub license](https://img.shields.io/github/license/Angatar/mysql-s3-backup)](https://github.com/Angatar/s3cmd/blob/master/LICENSE). For **s3cmd** license, please see https://github.com/s3tools/s3cmd . For the MySQL client license, please see https://pkgs.alpinelinux.org/packages?name=mysql-client .
