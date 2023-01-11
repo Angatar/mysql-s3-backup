@@ -98,4 +98,4 @@ In case you are interested in storing other data into a S3 compatible object sto
 ## License
 
 The content of this [GitHub code repository](https://github.com/Angatar/mysql-s3-backup) is provided under **MIT** licence
-[![GitHub license](https://img.shields.io/github/license/Angatar/mysql-s3-backup)](https://github.com/Angatar/s3cmd/blob/master/LICENSE). For **s3cmd** license, please see https://github.com/s3tools/s3cmd . For the MySQL client license, please see https://pkgs.alpinelinux.org/packages?name=mysql-client .
+[![GitHub license](https://img.shields.io/github/license/Angatar/mysql-s3-backup)](https://github.com/Angatar/s3cmd/blob/master/LICENSE). For **s3cmd** license, please see https://github.com/s3tools/s3cmd . For the MySQL client package license, please see https://pkgs.alpinelinux.org/packages?name=mysql-client .
