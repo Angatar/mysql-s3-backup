@@ -5,12 +5,14 @@
 This is a Docker multi-arch image with a tiny MySQL client (~4kB installed) to create databases dumps and s3cmd S3 client installed on the latest Alpine container.
 
 Useful with **any S3 compatible** object storage system to store your databases dumps.
-The MySQL client works with any Mysql-compatible database i.e. MySQL, MariaDB or Amazon Aurora MySQL...
 
-This container has a shell for entry point so that it can be used to combine mysqldump and s3cmd commands easily.
+The MySQL client works with **any Mysql-compatible database** i.e. MySQL, MariaDB or Amazon Aurora MySQL...
+
+This container has a shell for entry point so that it can be **used to combine mysqldump and s3cmd commands** easily.
 
 ## Docker image
-[![Docker Image Size](https://badgen.net/docker/size/d3fk/mysql-s3-backup/latest?icon=docker&label=image%20size)](https://hub.docker.com/r/d3fk/mysql-s3-backup/tags)
+[![Docker Image Size](https://badgen.net/docker/size/d3fk/mysql-s3-backup/latest?icon=docker&label=compressed%20size)](https://hub.docker.com/r/d3fk/mysql-s3-backup/tags)
+
 Pre-build as multi-arch image from Docker hub with "automated build" option.
 
 - image name: **d3fk/mysql-s3-backup**
@@ -41,7 +43,7 @@ Docker hub repository: https://hub.docker.com/r/d3fk/mysql-s3-backup/
 
 #### --- Stable ---
 
-- **d3fk/mysql-s3-backup:stable** is a multi-arch image that won't be rebuild, so that it is providing fixed versions. It will probably be your choice in case you'd prefer a fixed version of this d3fk/mysql-s3-backup container to **avoid any possible change** in its behaviour. It contains the s3cmd S3 client version 2.3.0 and mysql-client 10.6.11-r0 in an Alpine Linux v3.17. This image had a stable behaviour observed in production, so that it was freezed in a release of the code repo and built from the Docker hub by automated build. It won't be changed or rebuilt in the future (the code is available from the "releases" section of this [image code repository on GitHub](https://github.com/Angatar/mysql-s3-backup)).
+- **d3fk/mysql-s3-backup:stable** is a multi-arch image that won't be rebuild so that it is providing you with fixed versions of the 2 clients & the Alpine linux distribution. It will probably be your choice in case you have to ensure to **avoid any possible change** in its behaviour. It contains the s3cmd S3 client version 2.3.0 and mysql-client package 10.6.11-r0 in an Alpine Linux v3.17. This image had a stable behaviour observed in production, so that it was freezed in a release of the code repo and built from the Docker hub by automated build. It won't be changed or rebuilt in the future (the code is available from the "releases" section of this [image code repository on GitHub](https://github.com/Angatar/mysql-s3-backup)).
 
 ```sh
 $ docker pull d3fk/mysql-s3-backup:stable
