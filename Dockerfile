@@ -10,7 +10,7 @@ RUN apk upgrade \
   && pip install python-dateutil python-magic \
   && python3 /tmp/s3cmd/setup.py install \
   && cd / \
-  && apk del py-pip git \
+  && apk del py3-pip git \
   && rm -rf /root/.cache/pip /tmp/s3cmd 
 
 WORKDIR /s3
