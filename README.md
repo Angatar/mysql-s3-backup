@@ -2,7 +2,7 @@
 
 
 # mysql-s3-backup (Angatar> d3fk/mysql-s3-backup)
-This is a Docker multi-arch image with a tiny MySQL client (~4kB installed) to create databases dumps and s3cmd S3 client installed on the latest Alpine container.
+This is a Docker multi-arch image with a tiny MySQL client (~4kB installed) to create databases dumps, and s3cmd S3 client to interact with your S3 buckets, purely installed on the latest Alpine container.
 
 Useful with **any S3 compatible** object storage system to store your databases dumps.
 
