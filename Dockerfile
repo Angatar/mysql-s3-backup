@@ -7,7 +7,7 @@ RUN apk upgrade \
   && apk add --no-cache mysql-client python3 py3-six py3-pip py3-setuptools libmagic git ca-certificates \
   && git clone https://github.com/s3tools/s3cmd.git /tmp/s3cmd \
   && cd /tmp/s3cmd \
-  && pip install python-magic \
+  && pip install python-dateutil python-magic \
   && python3 /tmp/s3cmd/setup.py install \
   && cd / \
   && apk del py-pip git \
