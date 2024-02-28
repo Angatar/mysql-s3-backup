@@ -5,6 +5,6 @@ LABEL org.opencontainers.image.url="https://github.com/Angatar/mysql-s3-backup"
 
 RUN apk upgrade --no-cache \
   &&  echo  https://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories \
-  && apk add --no-cache mysql-client ca-certificates s3cmd \
+  && apk add --no-cache mysql-client ca-certificates s3cmd
   
 WORKDIR /s3
