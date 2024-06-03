@@ -21,7 +21,7 @@ Pre-build as multi-arch image from Docker hub with "automated build" option.
 
 Docker hub repository: https://hub.docker.com/r/d3fk/mysql-s3-backup/
 
-[![DockerHub Badge](https://lucky-red-wombat.cyclic.app/image/d3fk/mysql-s3-backup)](https://hub.docker.com/r/d3fk/mysql-s3-backup)
+[![DockerHub Badge](https://dockeri.co/image/d3fk/mysql-s3-backup)](https://hub.docker.com/r/d3fk/mysql-s3-backup)
 
 ### Image TAGS
 ***"d3fk/mysql-s3-backup:latest" and "d3fk/mysql-s3-backup:stable" are both provided as multi-arch images.***
